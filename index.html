@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Dear Capibaraa 💕</title>
+
+<style>
+body {
+  margin:0;
+  height:100vh;
+  background: radial-gradient(circle, #ff5f9e, #120016);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 0 40px #ff4da6;
+  text-align:center;
+  color:white;
+  max-width:420px;
+  z-index:5;
+}
+
+h1 {
+  color:#ffd1ea;
+  text-shadow:0 0 15px hotpink;
+}
+
+button {
+  padding:15px 35px;
+  font-size:18px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  margin:15px;
+  transition:0.3s;
+}
+
+#yes {
+  background:#ff3c9f;
+  color:white;
+  box-shadow:0 0 20px hotpink;
+}
+
+#no {
+  background:#222;
+  color:white;
+  position:absolute;
+}
+
+.hello-kitty {
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  width:120px;
+  animation:dance 1.2s infinite alternate;
+  z-index:2;
+}
+
+@keyframes dance {
+  0% {transform:rotate(-10deg) translateY(0);}
+  100% {transform:rotate(10deg) translateY(-15px);}
+}
+
+.hearts span {
+  position:absolute;
+  font-size:25px;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {transform:translateY(100vh) scale(1);}
+  100% {transform:translateY(-10vh) scale(1.8);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<img src="https://i.imgur.com/4AiXzf8.png" class="hello-kitty">
+
+<div class="card" id="card">
+  <h1>My Dear Capibaraa 🐰💖</h1>
+  <p>Khusu… my Hello Kitty loving angel,  
+  every beat of my heart belongs to you.</p>
+
+  <h2>Will you be my Valentine? 💘</h2>
+
+  <button id="yes">YES 💕</button>
+  <button id="no">NO 😈</button>
+</div>
+
+<script>
+const no = document.getElementById("no");
+const yes = document.getElementById("yes");
+
+no.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+  no.style.opacity = Math.random();
+});
+
+yes.addEventListener("click", () => {
+  document.getElementById("card").innerHTML = `
+    <h1>YAAAY 💖</h1>
+    <p>Khusu, you just made me the happiest person alive 🥹</p>
+    <h2>I love you forever 💕</h2>
+  `;
+});
+
+// Floating hearts
+const heartBox = document.querySelector(".hearts");
+setInterval(() => {
+  const heart = document.createElement("span");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.animationDuration = 3 + Math.random()*3 + "s";
+  heartBox.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
